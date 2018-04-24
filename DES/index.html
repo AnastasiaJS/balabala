@@ -5,7 +5,8 @@
 	<title>Document</title>
 </head>
 <body>
-	<input type="text" id='message' value='abc'> <button onclick="showDes()">加密</button><button onclick="showDes2()">解密</button>
+	<input type="text" id='message' value='abc'> <button onclick="showDes()">加密</button>
+	<!-- <button onclick="showDes2()">解密</button> -->
 	<div id='show'></div>
 </body>
 <script src="http://cdn.static.runoob.com/libs/jquery/2.0.0/jquery.min.js">
@@ -345,7 +346,7 @@
 
 	}
 
-	// 十六进制转字节数组
+	/*// 十六进制转字节数组
 	function Str2Bytes(str) {
 	    let pos = 0;
 	    let len = str.length;
@@ -401,7 +402,7 @@
 
 	    return str;
 
-	}
+	}*/
 
 	function Utf8ToUnicode(strUtf8) { 
 	  let i,j; 
@@ -443,6 +444,10 @@
 	  } 
 	  return utf8str; 
 	} 
+
+
+
+	/*=========================================================*/
 	console.log('Utf8ToUnicode>>',Utf8ToUnicode('块'))
 	console.log('UnicodeToUtf8>>',UnicodeToUtf8([88,88]))
 	//encrypt: 加密
@@ -456,12 +461,7 @@
 	    let message=$('#message').val();
 	    $('#show').html(stringToHex(des(key, message, 1, 1, iv, 1)).toUpperCase())
 	}
-	//decrypt: 解密
-	// let result = des(key, hexToString(ciphertext), 0, 1,iv,1);
-	// document.writeln('======');
-
-	// document.writeln (result);
-
+	//decrypt: 解密(todo:有误)
 	function showDes2(){
 	    let message=$('#message').val();
 	    $('#show').html(des(key, hexToString(message), 0, 1, iv, 1))
